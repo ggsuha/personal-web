@@ -2907,7 +2907,7 @@ a {
 }
 a:focus,
 a:hover {
-    text-decoration: underline;
+    /* text-decoration: underline; */
 }
 p {
     margin: 2rem 0;
@@ -3688,4 +3688,8 @@ figure {
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
+}
+
+.colorscheme-toggle {
+    cursor: pointer;
 }

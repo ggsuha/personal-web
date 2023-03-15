@@ -1,11 +1,11 @@
 <template>
   <nav class="navigation">
     <section class="container">
-      <a class="navigation-title" href="/">
+      <!-- <a class="navigation-title" href="/">
         suha
-      </a>
+      </a> -->
 
-      <input type="checkbox" id="menu-toggle" />
+      <!-- <input type="checkbox" id="menu-toggle" />
       <label class="menu-button float-right" for="menu-toggle">
         <i class="fa fa-bars fa-fw" aria-hidden="true"></i>
       </label>
@@ -33,7 +33,7 @@
         <li class="navigation-item">
           <a href="pt-br.html">&#127463;&#127479;</a>
         </li>
-      </ul>
+      </ul> -->
     </section>
   </nav>
 </template>
