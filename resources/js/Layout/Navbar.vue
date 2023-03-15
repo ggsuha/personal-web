@@ -2,7 +2,7 @@
   <nav class="navigation">
     <section class="container">
       <a class="navigation-title" href="/">
-        suha.my.id
+        suha
       </a>
 
       <input type="checkbox" id="menu-toggle" />
