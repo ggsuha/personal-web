@@ -8,8 +8,8 @@ import Layout from '@/Layout/Default.vue'
       <div class="about">
         <div class="avatar">
           <picture>
-            <source srcset="images/suha.webp" type="image/webp">
-            <source srcset="images/suha.jpeg" type="image/jpeg">
+            <source srcset="/images/suha.webp" type="image/webp">
+            <source srcset="/images/suha.jpeg" type="image/jpeg">
             <img src="images/suha.jpeg" alt="avatar" />
           </picture>
         </div>
