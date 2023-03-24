@@ -1,14 +1,15 @@
 import { reactive } from "vue";
 
 interface Store {
-    isDark: boolean;
+    colorScheme: string;
     changeColor: () => void;
 }
 
 export const store: Store = reactive({
-    isDark: localStorage.getItem("isDark") === "true" ? true : false,
+    colorScheme:
+        localStorage.getItem("colorScheme") === "dark" ? "dark" : "light",
     changeColor() {
-        this.isDark = !this.isDark;
-        localStorage.setItem("isDark", this.isDark.toString());
+        this.colorScheme = this.colorScheme === "dark" ? "light" : "dark";
+        localStorage.setItem("colorScheme", this.colorScheme);
     },
 });
