@@ -187,11 +187,14 @@
 .colorscheme-dark .content .post .tags .tag a:active {
     color: #dadada;
 }
-.colorscheme-dark .content .list ul li .title {
+.colorscheme-dark .content .list ul li .title,
+.colorscheme-dark .content .project .title {
     color: #dadada;
 }
 .colorscheme-dark .content .list ul li .title:hover,
-.colorscheme-dark .content .list ul li .title:focus {
+.colorscheme-dark .content .list ul li .title:focus,
+.colorscheme-dark .content .project .title:hover,
+.colorscheme-dark .content .project .title:focus {
     color: #42a5f5;
 }
 .colorscheme-dark .content .centered .about ul li a {

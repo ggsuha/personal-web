@@ -3238,7 +3238,42 @@ figure {
         text-align: left;
     }
 }
-.list ul li .title {
+.project {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    width: 100%;
+}
+
+.project .item {
+    width: 50%; /* need to change to set margin and width*/
+    position: relative;
+    margin-bottom: 2rem;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+}
+
+.project .item:nth-child(even) {
+    padding-left: 2rem;
+}
+
+.project .item:nth-child(odd) {
+    padding-right: 2rem;
+}
+
+.project .item:last-child {
+    margin-bottom: 0;
+    justify-self: flex-start;
+}
+
+.project .item .description {
+    margin-top: 1rem;
+}
+
+.list ul li .title,
+.project .title {
     font-size: 1.8rem;
     flex: 2;
     color: #212121;
@@ -3249,7 +3284,9 @@ figure {
     font-weight: 700;
 }
 .list ul li .title:hover,
-.list ul li .title:focus {
+.list ul li .title:focus,
+.project .title:hover,
+.project .title:focus {
     color: #1565c0;
 }
 @media only screen and (min-width: 768.1px) {
