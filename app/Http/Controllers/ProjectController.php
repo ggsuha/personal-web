@@ -22,7 +22,6 @@ class ProjectController extends Controller
             'title',
             'slug',
             'description',
-            'url',
         ])->simplePaginate(10);
 
         return Inertia::render('Project/Index', compact('projects'));

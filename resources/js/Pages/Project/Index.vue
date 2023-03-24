@@ -18,12 +18,9 @@ const props = defineProps({
       </header>
 
       <div class="project">
-        <div v-for="project in projects" class="item">
-          <a class="title" href="mermaid-support.html">Mermaid JS support</a>
-          <p class="description">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Officiis illo deleniti
-            excepturi? Iusto voluptates
-            debitis dicta? Hic molestias ab itaque nesciunt officia necessitatibus quidem placeat, a, aperiam eaque
-            facilis porro.</p>
+        <div v-for="project in projects.data" class="item">
+          <a class="title" :href="project.slug">{{ project.title }}</a>
+          <p class="description">{{ project.description }}</p>
         </div>
       </div>
     </section>
