@@ -2,7 +2,10 @@
 import Layout from '@/Layout/Default.vue'
 
 const props = defineProps({
-  projects: Object,
+  projects: {
+    type: Object,
+    required: true,
+  },
 })
 </script>
 
