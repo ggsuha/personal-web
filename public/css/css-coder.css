@@ -3245,31 +3245,44 @@ figure {
     justify-content: space-between;
     width: 100%;
 }
-
 .project .item {
-    width: 50%; /* need to change to set margin and width*/
+    width: 50%;
     position: relative;
     margin-bottom: 2rem;
     -webkit-box-sizing: border-box;
     -moz-box-sizing: border-box;
     box-sizing: border-box;
 }
-
 .project .item:nth-child(even) {
     padding-left: 2rem;
 }
-
 .project .item:nth-child(odd) {
     padding-right: 2rem;
 }
-
 .project .item:last-child {
     margin-bottom: 0;
     justify-self: flex-start;
 }
-
 .project .item .description {
     margin-top: 1rem;
+    /* text-align: justify;
+    text-justify: inter-word; */
+}
+@media only screen and (max-width: 768px) {
+    .project .item {
+        width: 100%;
+        position: relative;
+        margin-bottom: 2rem;
+        -webkit-box-sizing: border-box;
+        -moz-box-sizing: border-box;
+        box-sizing: border-box;
+    }
+    .project .item:nth-child(even) {
+        padding-left: 0;
+    }
+    .project .item:nth-child(odd) {
+        padding-right: 0;
+    }
 }
 
 .list ul li .title,
