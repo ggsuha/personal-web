@@ -7,6 +7,7 @@
 
     <link rel="stylesheet" href="css/css-coder.css" media="screen" />
     <link rel="stylesheet" href="css/css-coder-dark.css" media="screen" />
+    <link rel="stylesheet" href="css/nprogress.css" />
 
     <link rel="icon" type="image/png" href="favicons/images-favicon-32x32.png" sizes="32x32" />
     <link rel="icon" type="image/png" href="favicons/images-favicon-16x16.png" sizes="16x16" />

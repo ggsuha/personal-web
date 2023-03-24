@@ -1,9 +1,11 @@
 import "@/bootstrap";
 
 import { createApp, h, DefineComponent } from "vue";
-import { createInertiaApp } from "@inertiajs/vue3";
+import { createInertiaApp, router } from "@inertiajs/vue3";
+import NProgress from "nprogress";
 
 createInertiaApp({
+    progress: false, //not working, so I need to disable it
     resolve: (name) => {
         const pages = import.meta.glob("./Pages/**/*.vue");
         let page: any = pages[`./Pages/${name}.vue`]();
@@ -22,3 +24,11 @@ createInertiaApp({
             .mount(el);
     },
 });
+
+/**
+ * Somehow InertiaProgress are not working,
+ * so I need to install NProgress
+ */
+NProgress.configure({ easing: "ease", showSpinner: false });
+router.on("start", () => NProgress.start());
+router.on("finish", () => NProgress.done());
