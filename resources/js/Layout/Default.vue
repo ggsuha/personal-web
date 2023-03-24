@@ -2,7 +2,7 @@
 import { Head } from '@inertiajs/vue3'
 import Navbar from '@/Layout/Navbar.vue'
 import Footer from '@/Layout/Footer.vue'
-import { store } from '@/store.js'
+import { store } from '@/store'
 </script>
 
 <template>
