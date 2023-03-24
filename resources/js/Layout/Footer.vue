@@ -1,7 +1,8 @@
 <template>
   <footer class="footer">
     <section class="container">
-      Made with 💖 by Suhadak Akbar &middot; Template by
+      Made with <span class="heart"></span> by Suhadak Akbar. <br />Origin
+      template by
       <a href="https://github.com/luizdepra/hugo-coder/">Hugo Coder</a>.
     </section>
   </footer>

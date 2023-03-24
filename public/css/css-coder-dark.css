@@ -360,6 +360,9 @@
 .colorscheme-dark .footer a {
     color: #42a5f5;
 }
+.colorscheme-dark .footer .container .heart::after {
+    content: "🤍";
+}
 @media (prefers-color-scheme: dark) {
     colorscheme-auto .footer a {
         color: #42a5f5;

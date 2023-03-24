@@ -3696,6 +3696,9 @@ figure {
     position: fixed;
     font-size: 1.6em;
 }
+.footer .container .heart::after {
+    content: "💙";
+}
 .float-container a {
     position: relative;
     display: inline-block;
