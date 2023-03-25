@@ -1,5 +1,6 @@
 <script setup lang="ts">
 import Layout from '@/Layout/Default.vue'
+import { Link } from '@inertiajs/vue3';
 
 const props = defineProps({
   project: {
@@ -16,9 +17,9 @@ const props = defineProps({
         <header>
           <div class="post-title">
             <h1 class="title">
-              <a class="title-link" :href="'/project/' + project.slug">
-                {{ project.title }}
-              </a>
+              <Link class="title-link" :href="'/project/' + project.slug">
+              {{ project.title }}
+              </Link>
             </h1>
           </div>
         </header>
@@ -28,32 +29,32 @@ const props = defineProps({
         </div>
         <div class="gallery-container">
           <div class="gallery-column">
-            <a href="/images/sample-1.jpg">
+            <a target="_blank" href="/images/sample-1.jpg">
               <img class="gallery" src="/images/sample-1.jpg" alt="home">
             </a>
-            <a href="/images/sample-2.jpg">
+            <a target="_blank" href="/images/sample-2.jpg">
               <img class="gallery" src="/images/sample-2.jpg" alt="home">
             </a>
-            <a href="/images/sample-2.jpg">
+            <a target="_blank" href="/images/sample-2.jpg">
               <img class="gallery" src="/images/sample-6.jpg" alt="home">
             </a>
           </div>
           <div class="gallery-column">
-            <a href="/images/sample-3.jpg">
+          <a target="_blank" href="/images/sample-3.jpg">
             <img class="gallery" src="/images/sample-3.jpg" alt="home">
           </a>
-          <a href="/images/sample-4.png">
+            <a target="_blank" href="/images/sample-4.png">
               <img class="gallery" src="/images/sample-4.png" alt="home">
             </a>
-            <a href="/images/sample-5.jpg">
+            <a target="_blank" href="/images/sample-5.jpg">
               <img class="gallery" src="/images/sample-5.jpg" alt="home">
             </a>
           </div>
         </div>
         <!-- <footer>
-            <section class="see-also">
-            </section>
-          </footer> -->
+                  <section class="see-also">
+                  </section>
+                </footer> -->
       </article>
     </section>
   </Layout>
