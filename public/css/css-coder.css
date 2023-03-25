@@ -3259,7 +3259,7 @@ figure {
 .project .item:nth-child(odd) {
     padding-right: 2rem;
 }
-.project .item:last-child {
+.project .item:last-child:nth-child(even) {
     margin-bottom: 0;
     justify-self: flex-start;
 }
@@ -3745,4 +3745,33 @@ figure {
 
 .colorscheme-toggle {
     cursor: pointer;
+}
+
+.paginate-simple {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    margin: 0 auto;
+    width: 20%;
+}
+.paginate-simple a,
+.paginate-simple button {
+    color: #212121;
+}
+.paginate-simple button {
+    background-color: transparent;
+    border: none;
+}
+.paginate-simple a:hover,
+.paginate-simple a:focus,
+.paginate-simple button:hover:not([disabled]),
+.paginate-simple button:focus {
+    color: #1565c0;
+    cursor: pointer;
+}
+
+.paginate-simple button:disabled {
+    cursor: default;
+    opacity: 50%;
 }

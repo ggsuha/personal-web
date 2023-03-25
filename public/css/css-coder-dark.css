@@ -398,3 +398,19 @@
         color: #dadada;
     }
 }
+
+.colorscheme-dark .paginate-simple a,
+.colorscheme-dark .paginate-simple button {
+    color: #dadada;
+}
+
+.colorscheme-dark .paginate-simple a:hover,
+.colorscheme-dark .paginate-simple a:focus,
+.colorscheme-dark .paginate-simple button:hover:not([disabled]),
+.colorscheme-dark .paginate-simple button:focus {
+    color: #42a5f5;
+}
+
+.colorscheme-dark .paginate-simple button:disabled {
+    opacity: 70%;
+}

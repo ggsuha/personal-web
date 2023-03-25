@@ -22,7 +22,7 @@ class ProjectController extends Controller
             'title',
             'slug',
             'description',
-        ])->simplePaginate(10);
+        ])->simplePaginate(4);
 
         return Inertia::render('Project/Index', compact('projects'));
     }
