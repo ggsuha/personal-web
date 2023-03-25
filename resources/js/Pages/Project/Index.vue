@@ -23,7 +23,7 @@ const props = defineProps({
 
       <div class="project">
         <div v-for="project in projects.data" class="item">
-          <a class="title" :href="project.slug">{{ project.title }}</a>
+          <a class="title" :href="'/project/' + project.slug">{{ project.title }}</a>
           <p class="description">{{ project.description }}</p>
         </div>
       </div>

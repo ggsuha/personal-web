@@ -3770,8 +3770,33 @@ figure {
     color: #1565c0;
     cursor: pointer;
 }
-
 .paginate-simple button:disabled {
     cursor: default;
     opacity: 50%;
+}
+
+.gallery-container {
+    display: flex;
+}
+
+.gallery-column {
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+    margin: 1rem;
+}
+
+.gallery {
+    width: 100%;
+    border-radius: 3px;
+    box-shadow: rgba(99, 99, 99, 0.3) 0px 2px 8px 0px;
+    margin: 1rem 0;
+    transition: filter 0.3s ease-in-out;
+}
+
+.gallery-container:hover .gallery {
+    filter: grayscale(100%);
+}
+.gallery-column a:hover .gallery {
+    filter: grayscale(0%);
 }

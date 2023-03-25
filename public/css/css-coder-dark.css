@@ -414,3 +414,7 @@
 .colorscheme-dark .paginate-simple button:disabled {
     opacity: 70%;
 }
+
+.colorscheme-dark .gallery {
+    box-shadow: rgba(255, 255, 255, 0.071) 0px 1px 4px 2px;
+}

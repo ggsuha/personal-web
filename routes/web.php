@@ -20,3 +20,4 @@ Route::get('/', function () {
 });
 
 Route::get('/project', [ProjectController::class, 'index']);
+Route::get('/project/{project:slug}', [ProjectController::class, 'show']);

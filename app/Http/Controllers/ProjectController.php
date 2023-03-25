@@ -8,7 +8,6 @@ use Inertia\Inertia;
 
 class ProjectController extends Controller
 {
-
     /**
      * Show project list.
      *
@@ -25,5 +24,16 @@ class ProjectController extends Controller
         ])->simplePaginate(4);
 
         return Inertia::render('Project/Index', compact('projects'));
+    }
+
+    /**
+     * Show project detail.
+     *
+     * @param  \App\Models\Project $project
+     * @return \Illuminate\View\View
+     */
+    public function show(Project $project)
+    {
+        return Inertia::render('Project/Show', compact('project'));
     }
 }
