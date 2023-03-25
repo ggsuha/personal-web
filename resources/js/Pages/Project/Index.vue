@@ -1,6 +1,6 @@
 <script setup lang="ts">
+import SimplePaginate from '@/Components/SimplePaginate.vue';
 import Layout from '@/Layout/Default.vue'
-import { Link } from '@inertiajs/vue3';
 
 const props = defineProps({
   projects: {
@@ -27,13 +27,8 @@ const props = defineProps({
           <p class="description">{{ project.description }}</p>
         </div>
       </div>
-      <div class="paginate-simple">
-        <Link :href="projects.prev_page_url ?? '#'" as="button" :disabled="projects.prev_page_url === null"><i
-          class="fa fa-3x fa-angle-left" aria-hidden="true"></i></Link>
-        <Link :href="projects.next_page_url ?? '#'" as="button" :disabled="projects.next_page_url === null"><i
-          class="fa fa-3x fa-angle-right" aria-hidden="true"></i>
-        </Link>
-      </div>
+
+      <SimplePaginate :data="projects" />
     </section>
   </Layout>
 </template>
