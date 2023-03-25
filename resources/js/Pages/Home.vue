@@ -37,8 +37,14 @@ import Layout from '@/Layout/Default.vue'
           </li>
 
           <li>
-            <a href="https://www.instagram.com/akbarsuhadak//" aria-label="Instagram">
+            <a href="https://www.instagram.com/akbarsuhadak/" aria-label="Instagram">
               <i class="fa fa-2x fa-instagram" aria-hidden="true"></i>
+            </a>
+          </li>
+
+          <li>
+            <a href="https://web.facebook.com/akbarsuhadak/" aria-label="Facebook">
+              <i class="fa fa-2x fa-facebook" aria-hidden="true"></i>
             </a>
           </li>
         </ul>
