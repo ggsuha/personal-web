@@ -16,6 +16,22 @@ class HandleInertiaRequests extends Middleware
     protected $rootView = 'app';
 
     /**
+     * Sets the root template that's loaded on the first page visit.
+     *
+     * @see https://inertiajs.com/server-side-setup#root-template
+     *
+     * @return string
+     */
+    public function rootView(Request $request)
+    {
+        if ($request->route()->named('admin.*')) {
+            return 'admin';
+        }
+
+        return $this->rootView;
+    }
+
+    /**
      * Determines the current asset version.
      *
      * @see https://inertiajs.com/asset-versioning
