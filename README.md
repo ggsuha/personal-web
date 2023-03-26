@@ -4,11 +4,11 @@ This template project is inspired by [Hugo Coder](https://github.com/luizdepra/h
 
 -   [**Requirements**](#requirement)
 -   [**Installation**](#installation)
--   [**Storage Configuration**](#storage-configuration)
+-   [**Licence**](#licence)
 
 ## Requirements
 
-This project created with Laravel 9 and requires minimum **PHP 8.1**. You also need to install NodeJs (minimum v16) and NPM to make front end works.
+This project created with Laravel 10 and requires minimum **PHP 8.1**. You also need to install NodeJs (minimum v16) and NPM to make front end works.
 
 ## Installation
 
@@ -33,7 +33,8 @@ php artisan key:generate
 ```
 
 6. Set the database in `.env` to match with the database credential, you can configure others too.
-7. Run `npm run dev` or `npm run build`
+7. Run `php artisan migrate --seed` to migrate and generate database sample
+8. Run `npm run dev` or `npm run build`
 
 ## License
 
