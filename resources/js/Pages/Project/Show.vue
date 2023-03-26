@@ -40,9 +40,9 @@ const props = defineProps({
             </a>
           </div>
           <div class="gallery-column">
-          <a target="_blank" href="/images/sample-3.jpg">
-            <img class="gallery" src="/images/sample-3.jpg" alt="home">
-          </a>
+            <a target="_blank" href="/images/sample-3.jpg">
+              <img class="gallery" src="/images/sample-3.jpg" alt="home">
+            </a>
             <a target="_blank" href="/images/sample-4.png">
               <img class="gallery" src="/images/sample-4.png" alt="home">
             </a>
@@ -51,10 +51,25 @@ const props = defineProps({
             </a>
           </div>
         </div>
-        <!-- <footer>
-                  <section class="see-also">
-                  </section>
-                </footer> -->
+        <footer>
+          <section class="built-with">
+            <h6>Built with:</h6>
+            <div class="tech">
+              <div class="tooltip">
+                <img src="/images/tech/laravel.svg" alt="Laravel">
+                <span>Laravel</span>
+              </div>
+              <div class="tooltip">
+                <img src="/images/tech/vue.svg" alt="Vue">
+                <span>Vue.js</span>
+              </div>
+              <div class="tooltip">
+                <img src="/images/tech/mysql.svg" alt="MySQL">
+                <span>MySQL</span>
+              </div>
+            </div>
+          </section>
+        </footer>
       </article>
     </section>
   </Layout>
