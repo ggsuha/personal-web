@@ -51,6 +51,11 @@ const props = defineProps({
             </a>
           </div>
         </div>
+
+        <div class="link">
+          <a href="#" class="button">See Project</a>
+        </div>
+
         <footer>
           <section class="built-with">
             <h6>Built with:</h6>

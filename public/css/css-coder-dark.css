@@ -429,3 +429,20 @@
 .colorscheme-dark .tooltip span::before {
     border-top-color: #dadada;
 }
+
+.colorscheme-dark .link {
+    width: 100%;
+    margin-top: 1em;
+    display: inline-flex;
+}
+.colorscheme-dark .link .button {
+    border: 2px solid #dadada;
+    border-radius: 5px;
+    padding: 10px 25px;
+    background: #212121;
+    color: #dadada;
+    margin: 0 auto;
+}
+.colorscheme-dark .link .button:hover {
+    background: #3b3b3b;
+}
