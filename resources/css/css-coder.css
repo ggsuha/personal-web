@@ -3712,7 +3712,7 @@ figure {
 .footer .container .heart::after {
     content: "💙";
 }
-.float-container a {
+.float-container button {
     position: relative;
     display: inline-block;
     width: 3rem;
@@ -3723,20 +3723,25 @@ figure {
     border-radius: 0.2rem;
     opacity: 0.5;
     transition: all 0.25s ease-in;
+    border-width: 0;
+    font-family: inherit;
+    font-style: inherit;
+    font-weight: inherit;
+    line-height: inherit;
+    padding: 0;
 }
-.float-container a:hover,
-.float-container a:focus {
+.float-container button:hover {
     color: #1565c0;
     opacity: 1;
 }
 @media only screen and (max-width: 768px) {
-    .float-container a:hover,
-    .float-container a:focus {
+    .float-container button:hover,
+    .float-container button:focus {
         color: #000;
         opacity: 0.5;
     }
 }
-.float-container a i {
+.float-container button i {
     position: absolute;
     top: 50%;
     left: 50%;
@@ -3814,6 +3819,9 @@ figure {
     width: 100%;
     justify-content: space-evenly;
     flex-wrap: wrap;
+}
+.built-with .title {
+    font-size: 1em;
 }
 .built-with .tech img {
     width: 5rem;

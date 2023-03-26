@@ -58,7 +58,7 @@ const props = defineProps({
 
         <footer>
           <section class="built-with">
-            <h6>Built with:</h6>
+            <h1 class="title">Built with:</h1>
             <div class="tech">
               <div class="tooltip">
                 <img src="/images/tech/laravel.svg" alt="Laravel">

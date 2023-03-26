@@ -12,9 +12,10 @@ import { store } from '@/store'
 
   <div :class="'colorscheme-' + store.colorScheme">
     <div class="float-container">
-      <a id="dark-mode-toggle" class="colorscheme-toggle" @click.prevent="store.changeColor">
+      <button id="dark-mode-toggle" class="colorscheme-toggle" @click.prevent="store.changeColor"
+        aria-label="Change Color Scheme">
         <i class="fa fa-adjust fa-fw" aria-hidden="true"></i>
-      </a>
+      </button>
     </div>
 
     <main class="wrapper">

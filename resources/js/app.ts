@@ -1,4 +1,7 @@
 import "@/bootstrap";
+import "@/../css/css-coder.css";
+import "@/../css/css-coder-dark.css";
+import "@/../css/nprogress.css";
 
 import { createApp, h, DefineComponent } from "vue";
 import { createInertiaApp, router } from "@inertiajs/vue3";
