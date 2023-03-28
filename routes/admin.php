@@ -8,3 +8,7 @@ Route::group(['middleware' => ['guest:web']], function () {
     Route::get('/', DashboardController::class)->name('home');
     Route::get('/login', [LoginController::class, 'showLoginForm']);
 });
+
+Route::group(['prefix' => 'filemanager', 'middleware' => ['web']], function () {
+    \UniSharp\LaravelFilemanager\Lfm::routes();
+});
