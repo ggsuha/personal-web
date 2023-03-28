@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import SimplePaginate from '@/Components/SimplePaginate.vue';
 import Layout from '@/Layout/Default.vue'
-import { Link } from '@inertiajs/vue3';
+import { Head, Link } from '@inertiajs/vue3';
 
 const props = defineProps({
   projects: {
@@ -12,6 +12,10 @@ const props = defineProps({
 </script>
 
 <template>
+  <Head key="page-title">
+    <title>Project List - Suhadak Akbar</title>
+  </Head>
+
   <Layout>
     <section class="container list">
       <header>

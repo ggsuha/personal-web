@@ -1,8 +1,13 @@
 <script setup lang="ts">
 import Layout from '@/Layout/Default.vue'
+import { Head } from '@inertiajs/vue3';
 </script>
 
 <template>
+  <Head key="page-title">
+    <title>Suhadak Akbar</title>
+  </Head>
+
   <Layout>
     <section class="container centered">
       <div class="about">

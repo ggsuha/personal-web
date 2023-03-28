@@ -1,6 +1,7 @@
 <script setup lang="ts">
 import Layout from '@/Layout/Default.vue'
 import { Link } from '@inertiajs/vue3';
+import { Head } from '@inertiajs/vue3';
 
 const props = defineProps({
   project: {
@@ -11,6 +12,10 @@ const props = defineProps({
 </script>
 
 <template>
+  <Head key="page-title">
+    <title>{{ project.title }} - Suhadak Akbar</title>
+  </Head>
+
   <Layout>
     <section class="container post">
       <article>
