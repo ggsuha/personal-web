@@ -77,7 +77,7 @@ function toggleCollapseShow(classes: any) {
         </h6>
         <!-- Navigation -->
 
-        <ul class="md:flex-col md:min-w-full flex flex-col list-none">
+        <ul class="md:flex-col md:min-w-full flex flex-col list-none mb-10">
           <li class="items-center">
             <!-- 'text-emerald-500 hover:text-emerald-600' -->
             <Link href="/admin/dashboard" as="button" class="text-xs uppercase py-3 font-bold block" :class="[
@@ -100,6 +100,12 @@ function toggleCollapseShow(classes: any) {
             </Link>
           </li>
         </ul>
+        <div class="absolute bottom-0 left-0 text-xs w-full text-center">
+          <a as="button" target="_blank" href="/admin/filemanager">
+            <div class="bg-emerald-600 p-2 text-white rounded w-full">File Manager
+            </div>
+          </a>
+        </div>
       </div>
     </div>
   </nav>
