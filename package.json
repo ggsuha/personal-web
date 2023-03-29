@@ -20,6 +20,8 @@
         "@popperjs/core": "^2.11.7",
         "@vitejs/plugin-vue": "^4.0.0",
         "choices.js": "^10.2.0",
-        "nprogress": "^0.2.0"
+        "nprogress": "^0.2.0",
+        "sweetalert2": "^11.4.8",
+        "vue3-dropzone": "^2.0.1"
     }
 }

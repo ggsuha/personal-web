@@ -1,8 +1,9 @@
 <script setup lang="ts">
 import { computed } from 'vue';
 import Layout from '@/Admin/Layout/Default.vue'
-import { Head } from '@inertiajs/vue3';
+import { Head, useForm } from '@inertiajs/vue3';
 import Choices from '@/Admin/Components/Ui/Choices.vue';
+import FileUpload from '@/Admin/Components/Ui/FileUpload.vue';
 
 const props = defineProps({
   action: {
@@ -18,6 +19,10 @@ const props = defineProps({
     required: true,
   }
 })
+
+const form = useForm({
+  images: [],
+});
 
 const title = computed(() => {
   return props.action === 'post' ? 'Create' : 'Edit';
@@ -99,6 +104,16 @@ const title = computed(() => {
                       <textarea type="text"
                         class="border-0 px-3 py-3 placeholder-slate-300 text-slate-600 bg-white rounded text-sm shadow focus:outline-none focus:ring w-full ease-linear transition-all duration-150"
                         rows="4">haha</textarea>
+                    </div>
+                  </div>
+
+                  <div class="w-full lg:w-12/12 px-4">
+                    <div class="relative w-full mb-3">
+                      <label class="block uppercase text-slate-600 text-xs font-bold mb-2" htmlFor="image">
+                        Image
+                      </label>
+
+                      <FileUpload v-model="form.images" accept="image/*" />
                     </div>
                   </div>
                 </div>
