@@ -2,6 +2,7 @@
 import { computed } from 'vue';
 import Layout from '@/Admin/Layout/Default.vue'
 import { Head } from '@inertiajs/vue3';
+import Choices from '@/Admin/Components/Ui/Choices.vue';
 
 const props = defineProps({
   action: {
@@ -11,6 +12,10 @@ const props = defineProps({
   project: {
     type: Object,
     default: null
+  },
+  technologies: {
+    type: Object,
+    required: true,
   }
 })
 
@@ -79,9 +84,10 @@ const title = computed(() => {
                       <label class="block uppercase text-slate-600 text-xs font-bold mb-2" htmlFor="grid-password">
                         Tech Used
                       </label>
-                      <input type="text"
-                        class="border-0 px-3 py-3 placeholder-slate-300 text-slate-600 bg-white rounded text-sm shadow focus:outline-none focus:ring w-full ease-linear transition-all duration-150"
-                        value="Jesse" />
+
+                      <Choices id="tech" :multiple="true" placeholder="Select tech...">
+                        <option value="tech.id" v-for="tech in technologies">{{ tech.name }}</option>
+                      </Choices>
                     </div>
                   </div>
 
