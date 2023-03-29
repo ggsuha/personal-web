@@ -21,11 +21,11 @@
     <link rel="stylesheet" href="{{ asset('vendor/laravel-filemanager/css/cropper.min.css') }}">
     <link rel="stylesheet" href="{{ asset('vendor/laravel-filemanager/css/dropzone.min.css') }}">
     <link rel="stylesheet" href="{{ asset('vendor/laravel-filemanager/css/mime-icons.min.css') }}">
-    <style>
+    {{-- <style>
         {!! \File::get(base_path('vendor/unisharp/laravel-filemanager/public/css/lfm.css')) !!}
-    </style>
+    </style> --}}
     {{-- Use the line below instead of the above if you need to cache the css. --}}
-    {{-- <link rel="stylesheet" href="{{ asset('/vendor/laravel-filemanager/css/lfm.css') }}"> --}}
+    <link rel="stylesheet" href="{{ asset('/vendor/laravel-filemanager/css/lfm.css') }}">
 </head>
 
 <body>
@@ -277,11 +277,11 @@
             }
         ];
     </script>
-    <script>
+    {{-- <script>
         {!! \File::get(base_path('vendor/unisharp/laravel-filemanager/public/js/script.js')) !!}
-    </script>
+    </script> --}}
     {{-- Use the line below instead of the above if you need to cache the script. --}}
-    {{-- <script src="{{ asset('vendor/laravel-filemanager/js/script.js') }}"></script> --}}
+    <script src="{{ asset('vendor/laravel-filemanager/js/script.js') }}"></script>
     <script>
         Dropzone.options.uploadForm = {
             paramName: "upload[]", // The name that will be used to transfer the file
