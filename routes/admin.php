@@ -8,7 +8,11 @@ use Illuminate\Support\Facades\Route;
 Route::group(['middleware' => ['guest:web']], function () {
     Route::get('/', DashboardController::class)->name('home');
     Route::get('/login', [LoginController::class, 'showLoginForm']);
-    Route::get('/project/create', [ProjectController::class, 'create']);
+
+    Route::group(['prefix' => 'project'], function () {
+        Route::get('/', [ProjectController::class, 'index']);
+        Route::get('/create', [ProjectController::class, 'create']);
+    });
 });
 
 Route::group(['prefix' => 'filemanager', 'middleware' => ['web']], function () {
