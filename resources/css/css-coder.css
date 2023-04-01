@@ -3785,6 +3785,7 @@ figure {
 }
 
 .gallery-column {
+    width: 50%;
     display: flex;
     flex-direction: column;
     margin: 1rem;
@@ -3795,6 +3796,7 @@ figure {
     }
     .gallery-column {
         margin: 0;
+        width: 100%;
     }
 }
 
@@ -3806,12 +3808,12 @@ figure {
     transition: filter 0.3s ease-in-out;
 }
 
-.gallery-container:hover .gallery {
+/* .gallery-container:hover .gallery {
     filter: grayscale(100%);
 }
 .gallery-column a:hover .gallery {
     filter: grayscale(0%);
-}
+} */
 
 .tech {
     display: flex;

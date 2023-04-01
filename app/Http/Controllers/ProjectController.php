@@ -21,7 +21,7 @@ class ProjectController extends Controller
             'title',
             'slug',
             'description',
-        ])->simplePaginate(4);
+        ])->orderByDesc('id')->simplePaginate(4);
 
         return Inertia::render('Project/Index', compact('projects'));
     }
@@ -34,6 +34,11 @@ class ProjectController extends Controller
      */
     public function show(Project $project)
     {
+        $project->load([
+            'technologies',
+            'images',
+        ]);
+
         return Inertia::render('Project/Show', compact('project'));
     }
 }

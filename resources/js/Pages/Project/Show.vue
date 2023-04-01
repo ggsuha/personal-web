@@ -2,12 +2,26 @@
 import Layout from '@/Layout/Default.vue'
 import { Link } from '@inertiajs/vue3';
 import { Head } from '@inertiajs/vue3';
+import { computed } from '@vue/reactivity';
 
 const props = defineProps({
   project: {
     type: Object,
     required: true,
   },
+})
+
+const images = computed(() => {
+  if (props.project.images.length === 0) {
+    return null;
+  }
+
+  const middleIndex = Math.ceil(props.project.images.length / 2);
+
+  const firstHalf = props.project.images.slice().splice(0, middleIndex);
+  const secondHalf = props.project.images.slice().splice(-middleIndex);
+
+  return [firstHalf, secondHalf];
 })
 </script>
 
@@ -32,50 +46,25 @@ const props = defineProps({
         <div class="post-content">
           {{ project.description }}
         </div>
-        <div class="gallery-container">
-          <div class="gallery-column">
-            <a target="_blank" href="/images/sample-1.jpg">
-              <img class="gallery" src="/images/sample-1.jpg" alt="home">
-            </a>
-            <a target="_blank" href="/images/sample-2.jpg">
-              <img class="gallery" src="/images/sample-2.jpg" alt="home">
-            </a>
-            <a target="_blank" href="/images/sample-2.jpg">
-              <img class="gallery" src="/images/sample-6.jpg" alt="home">
-            </a>
-          </div>
-          <div class="gallery-column">
-            <a target="_blank" href="/images/sample-3.jpg">
-              <img class="gallery" src="/images/sample-3.jpg" alt="home">
-            </a>
-            <a target="_blank" href="/images/sample-4.png">
-              <img class="gallery" src="/images/sample-4.png" alt="home">
-            </a>
-            <a target="_blank" href="/images/sample-5.jpg">
-              <img class="gallery" src="/images/sample-5.jpg" alt="home">
+        <div class="gallery-container" v-if="images">
+          <div class="gallery-column" v-for="collection in images">
+            <a v-for="image in collection" target="_blank" :href="image.url">
+              <img class="gallery" :src="image.url" :alt="`${project.title}-image`">
             </a>
           </div>
         </div>
 
-        <div class="link">
-          <a href="#" class="button">See Project</a>
+        <div class="link" v-if="project.url">
+          <a :href="project.url" class="button">See Project</a>
         </div>
 
         <footer>
           <section class="built-with">
             <h1 class="title">Built with:</h1>
             <div class="tech">
-              <div class="tooltip">
-                <img src="/images/tech/laravel.svg" alt="Laravel">
-                <span>Laravel</span>
-              </div>
-              <div class="tooltip">
-                <img src="/images/tech/vue.svg" alt="Vue">
-                <span>Vue.js</span>
-              </div>
-              <div class="tooltip">
-                <img src="/images/tech/mysql.svg" alt="MySQL">
-                <span>MySQL</span>
+              <div class="tooltip" v-for="tech in project.technologies">
+                <img :src="`/images/tech/${tech.code}.svg`" :alt="tech.name">
+                <span>{{ tech.name }}</span>
               </div>
             </div>
           </section>
