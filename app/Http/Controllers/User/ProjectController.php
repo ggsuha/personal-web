@@ -99,4 +99,17 @@ class ProjectController extends Controller
 
         return redirect()->back();
     }
+
+    /**
+     * Delete data.
+     *
+     * @param  \App\Models\Project $project
+     * @return \Inertia\Response
+     */
+    public function destroy(Project $project)
+    {
+        $project->delete();
+
+        return redirect()->back();
+    }
 }
