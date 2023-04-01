@@ -27,9 +27,14 @@ const props = defineProps({
       </header>
 
       <div class="project">
-        <div v-for="project in projects.data" class="item">
-          <Link class="title" :href="'/project/' + project.slug">{{ project.title }}</Link>
-          <p class="description">{{ project.description }}</p>
+        <template v-if="projects.data.length > 1">
+          <div v-for="project in projects.data" class="item">
+            <Link class="title" :href="'/project/' + project.slug">{{ project.title }}</Link>
+            <p class="description">{{ project.description }}</p>
+          </div>
+        </template>
+        <div v-else>
+          Empty project
         </div>
       </div>
 
