@@ -9,13 +9,7 @@ Route::group(['middleware' => ['guest:web']], function () {
     Route::get('/', DashboardController::class)->name('home');
     Route::get('/login', [LoginController::class, 'showLoginForm']);
 
-    Route::group(['prefix' => 'project'], function () {
-        Route::get('/', [ProjectController::class, 'index']);
-        Route::post('/', [ProjectController::class, 'store']);
-        Route::get('/create', [ProjectController::class, 'create']);
-        Route::get('/{project:slug}/edit', [ProjectController::class, 'edit']);
-        Route::patch('/{project:slug}/update', [ProjectController::class, 'update']);
-    });
+    Route::resource('project', ProjectController::class);
 });
 
 Route::group(['prefix' => 'filemanager', 'middleware' => ['web']], function () {

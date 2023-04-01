@@ -26,7 +26,7 @@ function toggleCollapseShow(classes: any) {
       <!-- Brand -->
       <Link
         class="md:block text-left md:pb-2 text-slate-600 mr-0 inline-block whitespace-nowrap text-sm uppercase font-bold p-4 px-0"
-        href="/">
+        href="/admin">
       Admin
       </Link>
       <!-- User -->
@@ -80,7 +80,7 @@ function toggleCollapseShow(classes: any) {
         <ul class="md:flex-col md:min-w-full flex flex-col list-none mb-10">
           <li class="items-center">
             <!-- 'text-emerald-500 hover:text-emerald-600' -->
-            <Link href="/admin/dashboard" as="button" class="text-xs uppercase py-3 font-bold block" :class="[
+            <Link href="/admin" as="button" class="text-xs uppercase py-3 font-bold block" :class="[
               'text-slate-700 hover:text-slate-500',
             ]">
             <!-- 'text-slate-300' -->
@@ -91,12 +91,12 @@ function toggleCollapseShow(classes: any) {
 
           <li class="items-center">
             <!-- 'text-emerald-500 hover:text-emerald-600' -->
-            <Link href="/admin/settings" as="button" class="text-xs uppercase py-3 font-bold block" :class="[
+            <Link href="/admin/project" as="button" class="text-xs uppercase py-3 font-bold block" :class="[
               'text-slate-700 hover:text-slate-500',
             ]">
             <!-- 'text-slate-300' -->
-            <i class="fas fa-tools mr-2 text-sm" :class="['opacity-75']"></i>
-            Settings
+            <i class="fas fa-code mr-2 text-sm" :class="['opacity-75']"></i>
+            Projects
             </Link>
           </li>
         </ul>
