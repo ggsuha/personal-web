@@ -1,8 +1,34 @@
 <script setup lang="ts">
 import Layout from "@/Admin/Layout/Auth.vue"
+import { Head, useForm } from '@inertiajs/vue3';
+import InputError from '@/Admin/Components/Ui/InputError.vue';
+
+const props = defineProps({
+  errors: {
+    type: Object
+  }
+})
+
+const form = useForm({
+  email: null,
+  password: null,
+  remember: null,
+});
+
+function submit() {
+  form.post(
+    '/admin/login',
+    {
+      preserveScroll: true
+    });
+}
 </script>
 
 <template>
+  <Head>
+    <title>Login</title>
+  </Head>
+
   <Layout>
     <div class="container mx-auto px-4 h-full">
       <div class="flex content-center items-center justify-center h-full">
@@ -23,7 +49,8 @@ import Layout from "@/Admin/Layout/Auth.vue"
                   </label>
                   <input type="email"
                     class="border-0 px-3 py-3 placeholder-slate-300 text-slate-600 bg-white rounded text-sm shadow focus:outline-none focus:ring w-full ease-linear transition-all duration-150"
-                    placeholder="Email" />
+                    placeholder="Email" v-model="form.email" />
+                  <InputError :text="errors?.email" />
                 </div>
 
                 <div class="relative w-full mb-3">
@@ -32,11 +59,11 @@ import Layout from "@/Admin/Layout/Auth.vue"
                   </label>
                   <input type="password"
                     class="border-0 px-3 py-3 placeholder-slate-300 text-slate-600 bg-white rounded text-sm shadow focus:outline-none focus:ring w-full ease-linear transition-all duration-150"
-                    placeholder="Password" />
+                    placeholder="Password" v-model="form.password" />
                 </div>
                 <div>
                   <label class="inline-flex items-center cursor-pointer">
-                    <input id="customCheckLogin" type="checkbox"
+                    <input id="customCheckLogin" type="checkbox" v-model="form.remember"
                       class="form-checkbox border-0 rounded text-slate-700 ml-1 w-5 h-5 ease-linear transition-all duration-150" />
                     <span class="ml-2 text-sm font-semibold text-slate-600">
                       Remember me
@@ -47,7 +74,7 @@ import Layout from "@/Admin/Layout/Auth.vue"
                 <div class="text-center mt-6">
                   <button
                     class="bg-slate-800 text-white active:bg-slate-600 text-sm font-bold uppercase px-6 py-3 rounded shadow hover:shadow-lg outline-none focus:outline-none mr-1 mb-1 w-full ease-linear transition-all duration-150"
-                    type="button">
+                    type="button" @click.prevent="submit">
                     Sign In
                   </button>
                 </div>
