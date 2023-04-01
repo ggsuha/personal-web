@@ -2,6 +2,7 @@
 
 namespace App\Models;
 
+use App\Support\Model\HasImage;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
@@ -10,7 +11,7 @@ use Spatie\Sluggable\SlugOptions;
 
 class Project extends Model
 {
-    use HasFactory, HasSlug, SoftDeletes;
+    use HasFactory, HasImage, HasSlug, SoftDeletes;
 
     /**
      * The attributes that are mass assignable.
@@ -43,5 +44,15 @@ class Project extends Model
     public function images()
     {
         return $this->morphMany(Image::class, 'imageable');
+    }
+
+    /**
+     * Get tech
+     *
+     * @return \Illuminate\Database\Eloquent\Relations\HasMany
+     */
+    public function technologies()
+    {
+        return $this->belongsToMany(Technology::class, 'project_has_technologies');
     }
 }

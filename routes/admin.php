@@ -11,7 +11,10 @@ Route::group(['middleware' => ['guest:web']], function () {
 
     Route::group(['prefix' => 'project'], function () {
         Route::get('/', [ProjectController::class, 'index']);
+        Route::post('/', [ProjectController::class, 'store']);
         Route::get('/create', [ProjectController::class, 'create']);
+        Route::get('/{project:slug}/edit', [ProjectController::class, 'edit']);
+        Route::patch('/{project:slug}/update', [ProjectController::class, 'update']);
     });
 });
 

@@ -91,25 +91,23 @@ function handleClickDeleteFile(index: number) {
 
 <template>
   <div class="w-full flex flex-row flex-wrap bg-white border-solid border-slate-200 border-2 rounded">
-    <template v-if="state.files.length > 0">
-      <div class="w-52 h-52 box-border p-4" v-for="(file, index) in state.files" :key="index">
-        <div class="relative  h-full w-full">
-          <img class="object-cover h-full w-full rounded" :src="state.previews[index]" />
-          <div class="absolute inset-x-0 bottom-0 bg-rose-600 text-center cursor-pointer p-1"
-            @click="handleClickDeleteFile(index)">
-            <span class="text-slate-50">Hapus</span>
-          </div>
+    <div class="w-36 h-36 box-border p-4" v-for="(file, index) in state.files" :key="index">
+      <div class="relative  h-full w-full">
+        <img class="object-cover h-full w-full rounded" :src="state.previews[index]" />
+        <div class="absolute inset-x-0 bottom-0 bg-rose-600 text-center cursor-pointer p-1/2"
+          @click="handleClickDeleteFile(index)">
+          <span class="text-slate-50 text-xs">Hapus</span>
         </div>
       </div>
-      <div v-if="state.files.length < 1 || state.files.length < props.maxFiles" v-bind="getRootProps()"
-        class="w-52 h-52 box-border p-4 cursor-pointer">
-        <div class="relative h-full w-full rounded bg-cyan-600">
-          <input v-bind="getInputProps({ multiple: props.multiple, accept: props.accept })" />
-          <div class="absolute grid place-items-center inset-0">
-            <p class="text-9xl text-slate-50">+</p>
-          </div>
+    </div>
+    <div v-if="state.files.length < 1 || state.files.length < props.maxFiles" v-bind="getRootProps()"
+      class="w-36 h-36 box-border p-4 cursor-pointer">
+      <div class="relative h-full w-full rounded bg-cyan-600">
+        <input v-bind="getInputProps({ multiple: props.multiple, accept: props.accept })" />
+        <div class="absolute grid place-items-center inset-0">
+          <p class="text-5xl text-slate-50">+</p>
         </div>
       </div>
-    </template>
+    </div>
   </div>
 </template>

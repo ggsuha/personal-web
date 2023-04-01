@@ -20,7 +20,7 @@ function confirmDelete(slug: string) {
     cancelButtonText: 'Nope'
   }).then((result) => {
     if (result.isConfirmed) {
-      router.visit('/admin/project/' + slug, {
+      router.visit(`/admin/project/${slug}`, {
         method: 'delete',
         onSuccess: () => {
           Swal.fire('Deleted!', '', 'success')
@@ -72,8 +72,8 @@ function confirmDelete(slug: string) {
                 </tr>
               </thead>
               <tbody>
-                <template v-for="project in projects.data">
-                  <tr>
+                <template v-if="projects.data.length > 1">
+                  <tr v-for="project in projects.data">
                     <th
                       class="border-t-0 px-6 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4 text-left flex items-center">
                       <span class="ml-3 font-bold text-slate-600">
@@ -82,7 +82,7 @@ function confirmDelete(slug: string) {
                     </th>
                     <td
                       class="border-t-0 px-6 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4 text-right">
-                      <Link :href="'/admin/project/' + project.slug"
+                      <Link :href="`/admin/project/${project.slug}/edit`"
                         class="bg-sky-500 text-white hover:bg-sky-600 text-xs px-2 py-1 rounded outline-none focus:outline-none mx-1 mb-1 ease-linear transition-all duration-150">
                       Edit</Link>
                       <Link href="" @click.prevent="confirmDelete(project.slug)"
@@ -91,6 +91,12 @@ function confirmDelete(slug: string) {
                     </td>
                   </tr>
                 </template>
+                <tr v-else>
+                  <td
+                    class="w-full border-t-0 px-6 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4 text-center">
+                    Empty data
+                  </td>
+                </tr>
               </tbody>
             </table>
           </div>

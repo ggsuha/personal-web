@@ -10,7 +10,7 @@ const props = defineProps({
 </script>
 
 <template>
-  <div class="flex justify-center text-xs">
+  <div v-if="data.data.length > 1" class="flex justify-center text-xs">
     <ul class="pagination p-2 shadow-sm rounded">
       <li v-for="link in data.links" class="pagination-item my-1/2">
         <Link :disabled="link.active || !link.url"

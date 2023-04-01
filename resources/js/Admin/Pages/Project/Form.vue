@@ -1,14 +1,20 @@
 <script setup lang="ts">
-import { computed } from 'vue';
+import { computed, onMounted } from 'vue';
 import Layout from '@/Admin/Layout/Default.vue'
 import { Head, useForm } from '@inertiajs/vue3';
 import Choices from '@/Admin/Components/Ui/Choices.vue';
 import FileUpload from '@/Admin/Components/Ui/FileUpload.vue';
+import Swal from 'sweetalert2';
+import 'sweetalert2/src/sweetalert2.scss';
+import InputError from '@/Admin/Components/Ui/InputError.vue';
 
 const props = defineProps({
   action: {
     type: String,
     default: 'post',
+  },
+  errors: {
+    type: Object
   },
   project: {
     type: Object,
@@ -21,12 +27,36 @@ const props = defineProps({
 })
 
 const form = useForm({
-  images: [],
+  title: props.project?.title,
+  is_live: props.project?.is_live === 1 ? true : false,
+  url: props.project?.url,
+  technologies: props.project?.technologies ? props.project?.technologies.map((x: Object) => x.id.toString()) : [],
+  description: props.project?.description ?? '',
+  images: props.project?.images ?? [],
+  removed_images: [],
 });
 
 const title = computed(() => {
   return props.action === 'post' ? 'Create' : 'Edit';
 })
+
+function flagRemovedImage(id: number) {
+  form.removed_images.push(id);
+}
+
+function submit() {
+  form.transform((data) => ({
+    ...data,
+    _method: props.action,
+  })).post(
+    props.action === 'post' ? '/admin/project' : `/admin/project/${props.project.slug}/update`,
+    {
+      preserveScroll: true,
+      onSuccess: (response) => {
+        Swal.fire('Data berhasil diproses!')
+      }
+    });
+}
 </script>
 
 <template>
@@ -54,7 +84,8 @@ const title = computed(() => {
                       </label>
                       <input type="text" id="title"
                         class="border-0 px-3 py-3 placeholder-slate-300 text-slate-600 bg-white rounded text-sm shadow focus:outline-none focus:ring w-full ease-linear transition-all duration-150"
-                        value="lucky.jesse" />
+                        placeholder="lucky.jesse" v-model="form.title" />
+                      <InputError :text="errors?.title" />
                     </div>
                   </div>
                   <div class="w-full lg:w-6/12 px-4">
@@ -64,14 +95,15 @@ const title = computed(() => {
                       </label>
                       <div class="text-slate-600 text-sm mb-2 px-3 py-3 ">
                         <span class="ml-6 first:ml-0">
-                          <input type="radio" id="html" name="fav_language" value="HTML">
-                          <label class="ml-1" for="html">Active</label>
+                          <input type="radio" id="live" v-model="form.is_live" :value="true">
+                          <label class="ml-1" for="live">Active</label>
                         </span>
                         <span class="ml-6 first:ml-0">
-                          <input type="radio" id="css" name="fav_language" value="CSS">
-                          <label class="ml-1" for="css">Dead</label>
+                          <input type="radio" id="die" v-model="form.is_live" :value="false">
+                          <label class="ml-1" for="die">Dead</label>
                         </span>
                       </div>
+                      <InputError :text="errors?.is_live" />
                     </div>
                   </div>
                   <div class="w-full lg:w-6/12 px-4">
@@ -81,7 +113,8 @@ const title = computed(() => {
                       </label>
                       <input type="text"
                         class="border-0 px-3 py-3 placeholder-slate-300 text-slate-600 bg-white rounded text-sm shadow focus:outline-none focus:ring w-full ease-linear transition-all duration-150"
-                        value="google.com" />
+                        placeholder="google.com" v-model="form.url" />
+                      <InputError :text="errors?.url" />
                     </div>
                   </div>
                   <div class="w-full lg:w-6/12 px-4">
@@ -90,9 +123,10 @@ const title = computed(() => {
                         Tech Used
                       </label>
 
-                      <Choices id="tech" :multiple="true" placeholder="Select tech...">
-                        <option value="tech.id" v-for="tech in technologies">{{ tech.name }}</option>
+                      <Choices id="tech" :multiple="true" placeholder="Select technology..." v-model="form.technologies">
+                        <option :value="tech.id" v-for="tech in technologies">{{ tech.name }}</option>
                       </Choices>
+                      <InputError :text="errors?.technologies" />
                     </div>
                   </div>
 
@@ -103,7 +137,8 @@ const title = computed(() => {
                       </label>
                       <textarea type="text"
                         class="border-0 px-3 py-3 placeholder-slate-300 text-slate-600 bg-white rounded text-sm shadow focus:outline-none focus:ring w-full ease-linear transition-all duration-150"
-                        rows="4">haha</textarea>
+                        rows="4" v-model="form.description"></textarea>
+                      <InputError :text="errors?.description" />
                     </div>
                   </div>
 
@@ -113,7 +148,8 @@ const title = computed(() => {
                         Image
                       </label>
 
-                      <FileUpload v-model="form.images" accept="image/*" />
+                      <FileUpload v-model="form.images" accept="image/*" @remove="flagRemovedImage" />
+                      <InputError :text="errors?.images" />
                     </div>
                   </div>
                 </div>
@@ -121,7 +157,7 @@ const title = computed(() => {
                 <div class="w-full text-right mt-6">
                   <button
                     class="bg-emerald-500 text-white active:bg-emerald-600 font-bold uppercase text-xs px-4 py-2 rounded shadow hover:shadow-md outline-none focus:outline-none mr-1 ease-linear transition-all duration-150"
-                    type="button">
+                    type="button" @click.prevent="submit">
                     {{ title }}
                   </button>
                 </div>
