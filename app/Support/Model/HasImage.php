@@ -253,7 +253,7 @@ trait HasImage
      */
     public function getDirectory()
     {
-        return $this->bucketDirectory ? "images/shares/{$this->bucketDirectory}" : "images/shares/{$this->table}";
+        return $this->bucketDirectory ? "f/{$this->bucketDirectory}" : "f/{$this->table}";
     }
 
     /**

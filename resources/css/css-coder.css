@@ -3874,3 +3874,11 @@ figure {
 .link .button:hover {
     background: #dadada;
 }
+
+.download {
+    margin: 0 auto;
+    background: white;
+    border-radius: 3px;
+    box-sizing: border-box;
+    border: 1px #212121 solid;
+}

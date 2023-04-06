@@ -37,7 +37,7 @@ return [
 
     'allow_shared_folder'      => true,
 
-    'shared_folder_name'       => 'shares',
+    'shared_folder_name'       => '',
 
     /*
     |--------------------------------------------------------------------------
@@ -47,7 +47,7 @@ return [
 
     'folder_categories'        => [
         'file'  => [
-            'folder_name'  => 'files',
+            'folder_name'  => 'f',
             'startup_view' => 'list',
             'max_size'     => 50000, // size in KB
             'thumb' => true,
@@ -63,7 +63,7 @@ return [
             ],
         ],
         'image' => [
-            'folder_name'  => 'images',
+            'folder_name'  => 'f',
             'startup_view' => 'grid',
             'max_size'     => 50000, // size in KB
             'thumb' => true,
