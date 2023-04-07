@@ -49,7 +49,7 @@ function submit() {
     ...data,
     _method: props.action,
   })).post(
-    props.action === 'post' ? '/admin/project' : `/admin/project/${props.project.slug}/update`,
+    props.action === 'post' ? '/admin/project' : `/admin/project/${props.project.slug}`,
     {
       preserveScroll: true,
       onSuccess: (response) => {
