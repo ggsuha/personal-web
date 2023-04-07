@@ -39,7 +39,7 @@ function cut(text: string, threshold: number = 222) {
       </header>
 
       <div class="project">
-        <template v-if="projects.data.length > 1">
+        <template v-if="projects.data.length > 0">
           <div v-for="project in projects.data" class="item">
             <Link class="title" :href="'/project/' + project.slug">{{ project.title }}</Link>
             <p class="description">{{ cut(project.description) }}</p>
