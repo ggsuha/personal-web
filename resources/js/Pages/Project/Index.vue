@@ -9,6 +9,18 @@ const props = defineProps({
     required: true,
   },
 })
+
+function cut(text: string, threshold: number = 222) {
+  if (!text) {
+    return '';
+  }
+
+  if (text.length > threshold) {
+    text = text.replace(new RegExp(".(?=.{0," + (text.length - threshold - 1) + "}$)", "g"), '') + '...';
+  }
+
+  return text;
+}
 </script>
 
 <template>
@@ -30,7 +42,7 @@ const props = defineProps({
         <template v-if="projects.data.length > 1">
           <div v-for="project in projects.data" class="item">
             <Link class="title" :href="'/project/' + project.slug">{{ project.title }}</Link>
-            <p class="description">{{ project.description }}</p>
+            <p class="description">{{ cut(project.description) }}</p>
           </div>
         </template>
         <div v-else>
