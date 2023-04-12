@@ -3790,6 +3790,13 @@ figure {
     flex-direction: column;
     margin: 1rem;
 }
+
+.gallery-column:only-child {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    margin: 1rem;
+}
 @media only screen and (max-width: 768px) {
     .gallery-container {
         flex-direction: column;

@@ -16,7 +16,7 @@ function cut(text: string, threshold: number = 222) {
   }
 
   if (text.length > threshold) {
-    text = text.replace(new RegExp(".(?=.{0," + (text.length - threshold - 1) + "}$)", "g"), '') + '...';
+    return text.substring(text.length - threshold - 1) + '...';
   }
 
   return text;

@@ -16,6 +16,10 @@ const images = computed(() => {
     return null;
   }
 
+  if (props.project.images.length == 1) {
+    return [props.project.images];
+  }
+
   const middleIndex = Math.ceil(props.project.images.length / 2);
 
   const firstHalf = props.project.images.slice().splice(0, middleIndex);
@@ -59,7 +63,7 @@ const images = computed(() => {
         </div>
 
         <footer>
-          <section class="built-with">
+          <section class="built-with" v-if="project.technologies.length > 0">
             <h1 class="title">Built with:</h1>
             <div class="tech">
               <div class="tooltip" v-for="tech in project.technologies">
