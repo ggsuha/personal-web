@@ -48,7 +48,7 @@ const images = computed(() => {
         </header>
 
         <div class="post-content">
-          {{ project.description }}
+          <pre v-html="project.description"></pre>
         </div>
         <div class="gallery-container" v-if="images">
           <div class="gallery-column" v-for="collection in images">

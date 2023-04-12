@@ -3889,3 +3889,9 @@ figure {
     box-sizing: border-box;
     border: 1px #212121 solid;
 }
+
+.post-content pre {
+    white-space: pre-line;
+    text-align: justify;
+    font-family: inherit;
+}

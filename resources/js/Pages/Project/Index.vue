@@ -16,7 +16,7 @@ function cut(text: string, threshold: number = 222) {
   }
 
   if (text.length > threshold) {
-    return text.substring(text.length - threshold - 1) + '...';
+    return text.substring(0, threshold - 1) + '...';
   }
 
   return text;
