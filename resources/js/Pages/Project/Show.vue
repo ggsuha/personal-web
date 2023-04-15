@@ -53,7 +53,7 @@ const images = computed(() => {
         <div class="gallery-container" v-if="images">
           <div class="gallery-column" v-for="collection in images">
             <a v-for="image in collection" target="_blank" :href="image.url">
-              <img class="gallery" :src="image.url" :alt="`${project.title}-image`">
+              <img class="gallery" loading="lazy" :src="image.url" :alt="`${project.title}-image`">
             </a>
           </div>
         </div>
@@ -67,7 +67,7 @@ const images = computed(() => {
             <h1 class="title">Built with:</h1>
             <div class="tech">
               <div class="tooltip" v-for="tech in project.technologies">
-                <img :src="`/images/tech/${tech.code}.svg`" :alt="tech.name">
+                <img loading="lazy" :src="`/images/tech/${tech.code}.svg`" :alt="tech.name">
                 <span>{{ tech.name }}</span>
               </div>
             </div>
