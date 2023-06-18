@@ -21,3 +21,7 @@ Route::get('/', function () {
 
 Route::get('/project', [ProjectController::class, 'index']);
 Route::get('/project/{project:slug}', [ProjectController::class, 'show']);
+
+Route::get('ping', function () {
+    return response()->json();
+});
